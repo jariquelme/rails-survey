@@ -1,0 +1,18 @@
+<h1>My Responses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @survey_responses.each do |post| %>
+      <tr>
+        <td><%= post.date.strftime('%Y-%m-%d') %></td>
+        <td><%= post.response.to_json %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

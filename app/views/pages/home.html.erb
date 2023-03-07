@@ -1,10 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
 <% if current_user %>
   <h2><%= current_user.email %></h2>
   <%= image_tag(current_user.avatar_url) %>
   <%= button_to "Logout", destroy_user_session_path, data: { turbo: "false" }, method: :delete %>
 
   <%= link_to "New Survey", new_survey_path %>
+
+  <%= render "shared/survey_responses" %>
 <% end %>
