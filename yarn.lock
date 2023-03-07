@@ -175,7 +175,7 @@ loose-envify@^1.1.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-react-dom@^18.2.0:
+"react-dom@^16.5.0 || ^17.0.1 || ^18.1.0", react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -183,7 +183,7 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react@^18.2.0:
+"react@^16.5.0 || ^17.0.1 || ^18.1.0", react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
@@ -196,3 +196,17 @@ scheduler@^0.23.0:
   integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
   dependencies:
     loose-envify "^1.1.0"
+
+survey-core@1.9.77:
+  version "1.9.77"
+  resolved "https://registry.yarnpkg.com/survey-core/-/survey-core-1.9.77.tgz#242d0fe106f3ac9651061532b1aad21cb3516ec9"
+  integrity sha512-340q22SokKZAp9OjxDKG/Gkzo5j4EU3QXfsoxjEr2gCutWXyPkY3CLf49/g311Jm72Jtbe1nfecoOk0IBn1c2w==
+
+survey-react-ui@^1.9.77:
+  version "1.9.77"
+  resolved "https://registry.yarnpkg.com/survey-react-ui/-/survey-react-ui-1.9.77.tgz#10127193b429cb4b5e462a727e209e46b3ae6dab"
+  integrity sha512-U/3i719kWYWVqNUajK5GLPeywBDR6aTVwKmNY0qnBrYzxS+0CtAUgkmxLKiUskefBnDvDafviwk5pxjDarLQIw==
+  dependencies:
+    react "^16.5.0 || ^17.0.1 || ^18.1.0"
+    react-dom "^16.5.0 || ^17.0.1 || ^18.1.0"
+    survey-core "1.9.77"
