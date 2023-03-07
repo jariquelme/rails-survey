@@ -11,7 +11,9 @@ export const surveyJson = {
       "name": "whichDayDoYouWantToEvaluate",
       "title": "Which day do you want to evaluate?",
       "isRequired": true,
-      "inputType": "date"
+      "inputType": "date",
+      "minValueExpression": "today(-7)",
+      "maxValueExpression": "today()"
      }
     ],
     "title": "Day to evaluate"
