@@ -1,6 +1,5 @@
 <% if current_user %>
-  <h2><%= current_user.email %></h2>
-  <%= image_tag(current_user.avatar_url) %>
+  Wellcome <%= current_user.alias %>
   <%= button_to "Logout", destroy_user_session_path, data: { turbo: "false" }, method: :delete %>
 
   <%= link_to "New Survey", new_survey_path %>
