@@ -15,7 +15,6 @@ function SurveyForm() {
 
     const body = {
       survey_response: {
-        date: new Date().toUTCString(),
         response: sender.data
       }
     };

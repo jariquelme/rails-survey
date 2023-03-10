@@ -2,8 +2,11 @@ class Api::V1::SurveyResponseController < ActionController::API
   before_action :authenticate_user!
 
   def create
-    response = current_user.survey_responses.create!(survey_response_params)
-    if response
+    params = survey_response_params
+    response = current_user.survey_responses.new(params)
+    response.date = params.dig(:response, :whichDayDoYouWantToEvaluate)
+
+    if response.save!
       redirect_to root_path
     else
       render json: response.errors
