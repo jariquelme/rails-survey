@@ -5,7 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   def google_oauth2
-    user = User.from_omniauth(auth)
+    user = Omniauth::FindOrCreateUserByUidService.call(auth)
 
     if user.present?
       sign_out_all_scopes
