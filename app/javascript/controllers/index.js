@@ -5,4 +5,8 @@
 import { application } from "./application"
 
 import ReactController from "./react_controller"
+import NestedForm from 'stimulus-rails-nested-form'
+
 application.register("react", ReactController)
+application.register('nested-form', NestedForm)
+

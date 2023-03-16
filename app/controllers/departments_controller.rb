@@ -1,13 +1,9 @@
 class DepartmentsController < DashboardController
-  before_action :set_department, only: %i[ show edit update destroy ]
+  before_action :set_department, only: %i[ edit update destroy ]
 
   # GET /departments or /departments.json
   def index
     @departments = Department.all
-  end
-
-  # GET /departments/1 or /departments/1.json
-  def show
   end
 
   # GET /departments/new
@@ -25,7 +21,7 @@ class DepartmentsController < DashboardController
 
     respond_to do |format|
       if @department.save
-        format.html { redirect_to department_url(@department), notice: "Department was successfully created." }
+        format.html { redirect_to departments_url, notice: "Department was successfully created." }
         format.json { render :show, status: :created, location: @department }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +34,7 @@ class DepartmentsController < DashboardController
   def update
     respond_to do |format|
       if @department.update(department_params)
-        format.html { redirect_to department_url(@department), notice: "Department was successfully updated." }
+        format.html { redirect_to departments_url, notice: "Department was successfully updated." }
         format.json { render :show, status: :ok, location: @department }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +61,6 @@ class DepartmentsController < DashboardController
 
     # Only allow a list of trusted parameters through.
     def department_params
-      params.require(:department).permit(:name)
+      params.require(:department).permit(:name, teams_attributes: [:id, :name, :_destroy])
     end
 end

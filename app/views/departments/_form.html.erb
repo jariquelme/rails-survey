@@ -1,4 +1,8 @@
-<%= form_with(model: department, class: "contents") do |form| %>
+<%= form_with(
+    model: department,
+    class: "contents",
+    data: { controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper' }
+  ) do |form| %>
   <% if department.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
@@ -16,7 +20,25 @@
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <template data-nested-form-target="template">
+    <%= form.fields_for :teams, Team.new, child_index: "NEW_RECORD" do |team_fields| %>
+      <%= render "departments/department_team_form", form: team_fields %>
+    <% end %>
+  </template>
+  <%= form.fields_for :teams do |team_fields| %>
+    <%= render "departments/department_team_form", form: team_fields %>
+  <% end %>
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+
+  <div class="mb-20">
+    <button type="button" data-action="nested-form#add" class="ml-2 rounded-lg py-3 px-5 my-5 text-white bg-green-600 hover:bg-green-500 inline-block font-medium">
+      Add Team
+    </button>
+  </div>
+
+
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-green-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-green-600 hover:bg-green-500 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
