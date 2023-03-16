@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :departments
   resources :survey_responses, only: [:index, :show, :new]
   namespace :api do
     namespace :v1 do

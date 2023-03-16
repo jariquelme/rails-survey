@@ -1,0 +1,13 @@
+<div class="w-full pl-10 pb-4">
+  <div class="flex items-center justify-between pt-7 pb-2 px-10">
+    <div>
+      <h2 class="text-1xl font-semibold leading-relaxed text-gray-800">New Department</h2>
+    </div>
+  </div>
+
+  <div class="mx-auto md:w-2/3">
+    <%= render "form", department: @department %>
+
+    <%= link_to 'Back to departments', departments_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>

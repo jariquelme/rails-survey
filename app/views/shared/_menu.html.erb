@@ -19,6 +19,16 @@
     </li>
   </ul>
 
+  <ul class="flex flex-col gap-y-6 pt-20">
+    <li>
+      <%= link_to departments_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-indigo-600 group' do %>
+        <span class="absolute w-1.5 h-8 bg-indigo-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
+        <%= inline_svg_tag('icons/group-chat.svg', class: 'w-6 h-6 fill-current') %>
+        <span>Departments</span>
+      <% end %>
+    </li^>
+  </ul>
+
    <ul class="flex flex-col gap-y-6 pt-20">
     <li>
       <%= button_to destroy_user_session_path, data: { turbo: "false" }, method: :delete, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-indigo-600 group' do %>
@@ -27,6 +37,5 @@
         <span>Logout</span>
       <% end %>
     </li>
-
   </ul>
 </aside>
