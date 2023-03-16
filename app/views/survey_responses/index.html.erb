@@ -1,0 +1,29 @@
+<div class="w-full pl-10">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+
+  <p class="text-xl py-8 text-gray-700 font-medium text-gray-800">
+    Your last responses
+  </p>
+
+  <table class="w-full border-b border-gray-200 table-fixed">
+    <thead>
+      <tr class="text-sm font-medium text-gray-700 border-b border-gray-200">
+        <td class="py-4 px-4 text-center">Date</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @survey_responses.each do |survey_response| %>
+        <tr class="hover:bg-gray-100 transition-colors group">
+          <td class="font-medium text-center">
+            <%= link_to survey_response_path(survey_response), class: 'font-medium text-gray-400' do %>
+              <%= survey_response.date.strftime('%Y-%m-%d') %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

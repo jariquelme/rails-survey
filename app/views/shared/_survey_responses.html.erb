@@ -8,10 +8,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @survey_responses.each do |post| %>
+    <% @survey_responses.each do |survey_response| %>
       <tr>
-        <td><%= post.date.strftime('%Y-%m-%d') %></td>
-        <td><%= post.response.to_json %></td>
+        <td><%= survey_response.date.strftime('%Y-%m-%d') %></td>
+        <td><%= survey_response.response.to_json %></td>
       </tr>
     <% end %>
   </tbody>

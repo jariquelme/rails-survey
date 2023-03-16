@@ -1,7 +1,4 @@
 export const surveyJson = {
-  "title": "Good Day",
-  "logo": "https://dkckbwr4t7ug6.cloudfront.net/assets/application/shared/meta_data/default_og_image-2383bf42e9b1c5a9d4e2b3f7ed8a90a70db9e39844273f9839dfdd0549be9647.png",
-  "logoPosition": "right",
   "pages": [
    {
     "name": "page3",
