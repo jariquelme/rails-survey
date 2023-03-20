@@ -1,50 +1,49 @@
 <div class="w-full pl-10">
-  <div class="flex items-center justify-between pt-7 pb-2 px-10">
+  <div class="flex items-center justify-between pt-7 pb-2 pr-10">
     <div>
       <h2 class="text-1xl font-semibold leading-relaxed text-gray-800">Departments</h2>
     </div>
     <%= link_to new_department_path, class: 'inline-flex gap-x-2 items-center py-2.5 px-6 text-white bg-green-600 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1' do %>
       <%= inline_svg_tag('icons/plus.svg', class: 'w-6 h-6 fill-current') %>
-      <span class="text-sm font-semibold tracking-wide">New Department</span>
     <% end %>
   </div>
 
-  <div id="departments" class="min-w-full">
-      <table class="w-full border-b border-gray-200 table-fixed">
-    <thead>
-      <tr class="text-sm font-medium text-gray-700 border-b border-gray-200">
-        <td class="py-4 px-4 text-center">Name</td>
-        <td class="py-4 px-4 text-center">Teams</td>
-        <td class="py-4 px-4 text-center"></td>
-        <td class="py-4 px-4 text-center"></td>
-        <td class="py-4 px-4 text-center"></td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @departments.each do |department| %>
-        <tr class="hover:bg-gray-100 transition-colors group">
-          <td class="font-medium text-center">
-           <span class="font-medium"><%= department.name %></span>
-            
-          </td>
-          <td class="font-medium text-center">
-            <% department.teams.each do |team| %>
-              <span class="font-medium"><%= team.name %></span><br />
-            <% end %>
-          </td>
-          <td class="font-medium text-center">
-            <%= link_to edit_department_path(department), class: 'inline-flex gap-x-2 items-center py-2.5 px-6 text-white bg-green-800 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1' do %>
-              <%= inline_svg_tag('icons/pencil.svg', class: 'w-6 h-6 fill-current') %>
-            <% end %>
-          </td>
-          <td class="font-medium text-center">
-            <%= button_to department_path(department), method: :delete, class: 'inline-flex gap-x-2 items-center py-2.5 px-6 text-white bg-red-800 rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1' do %>
-              <%= inline_svg_tag('icons/trash.svg', class: 'w-6 h-6 fill-current') %>
-            <% end %>
-          </td>
+  <div id="departments" class="min-w-full pr-10">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <div class="flex cursor-pointer">
+              <span class="mr-2">NAME</span>
+            </div>
+          </th>
+          <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            <div class="flex cursor-pointer">
+                <span class="mr-2">ACTION</span>
+            </div>
+          </th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <% @departments.each do |department| %>
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+              <p><%= department.name %></p>
+              <p class="text-xs text-gray-400"><%= team_names(department) %></p>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+              <div class="flex space-x-4">
+                <%= link_to edit_department_path(department) do %>
+                  <%= inline_svg_tag('icons/pencil.svg', class: 'w-6 h-6 text-green-800') %>
+                <% end %>
+                <%= button_to department_path(department), method: :delete do %>
+                  <%= inline_svg_tag('icons/trash.svg', class: 'w-6 h-6 text-red-800') %>
+                <% end %>
+              </div>
+            </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

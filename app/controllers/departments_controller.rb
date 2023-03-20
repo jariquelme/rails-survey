@@ -2,7 +2,7 @@ class DepartmentsController < DashboardController
   before_action :set_department, only: %i[ edit update destroy ]
 
   def index
-    @departments = Department.all
+    @departments = Department.all.includes(:teams)
   end
 
   def new
