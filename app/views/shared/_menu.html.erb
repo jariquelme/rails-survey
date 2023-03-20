@@ -4,15 +4,15 @@
   </div>
   <ul class="flex flex-col gap-y-6 pt-20">
     <li>
-      <%= link_to root_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-indigo-600 group' do %>
-        <span class="absolute w-1.5 h-8 bg-indigo-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
+      <%= link_to root_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-green-600 group' do %>
+        <span class="absolute w-1.5 h-8 bg-green-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
         <%= inline_svg_tag('icons/home.svg', class: 'w-6 h-6 fill-current') %>
         <span>Home</span>
       <% end %>
     </li>
     <li>
-      <%= link_to survey_responses_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-indigo-600 group' do %>
-        <span class="absolute w-1.5 h-8 bg-indigo-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
+      <%= link_to survey_responses_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-green-600 group' do %>
+        <span class="absolute w-1.5 h-8 bg-green-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
         <%= inline_svg_tag('icons/survey.svg', class: 'w-6 h-6 fill-current') %>
         <span>Surveys</span>
       <% end %>
@@ -21,8 +21,8 @@
 
   <ul class="flex flex-col gap-y-6 pt-20">
     <li>
-      <%= link_to departments_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-indigo-600 group' do %>
-        <span class="absolute w-1.5 h-8 bg-indigo-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
+      <%= link_to departments_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-green-600 group' do %>
+        <span class="absolute w-1.5 h-8 bg-green-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
         <%= inline_svg_tag('icons/group-chat.svg', class: 'w-6 h-6 fill-current') %>
         <span>Departments</span>
       <% end %>
@@ -31,8 +31,15 @@
 
    <ul class="flex flex-col gap-y-6 pt-20">
     <li>
-      <%= button_to destroy_user_session_path, data: { turbo: "false" }, method: :delete, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-indigo-600 group' do %>
-        <span class="absolute w-1.5 h-8 bg-indigo-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
+      <%= link_to profile_path, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-green-600 group' do %>
+        <span class="absolute w-1.5 h-8 bg-green-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
+        <%= inline_svg_tag('icons/settings.svg', class: 'w-6 h-6 fill-current') %>
+        <span>Profile</span>
+      <% end %>
+    </li>   
+    <li>
+      <%= button_to destroy_user_session_path, data: { turbo: "false" }, method: :delete, class: 'flex gap-x-4 items-center py-2 text-gray-500 hover:text-green-600 group' do %>
+        <span class="absolute w-1.5 h-8 bg-green-600 rounded-r-full left-0 scale-y-0 -translate-x-full group-hover:scale-y-100 group-hover:translate-x-0 transition-transform ease-in-out"></span>
         <%= inline_svg_tag('icons/logout.svg', class: 'w-6 h-6 fill-current') %>
         <span>Logout</span>
       <% end %>

@@ -1,65 +1,58 @@
 class DepartmentsController < DashboardController
   before_action :set_department, only: %i[ edit update destroy ]
 
-  # GET /departments or /departments.json
   def index
     @departments = Department.all
   end
 
-  # GET /departments/new
   def new
     @department = Department.new
   end
 
-  # GET /departments/1/edit
   def edit
   end
 
-  # POST /departments or /departments.json
   def create
     @department = Department.new(department_params)
 
-    respond_to do |format|
-      if @department.save
-        format.html { redirect_to departments_url, notice: "Department was successfully created." }
-        format.json { render :show, status: :created, location: @department }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @department.errors, status: :unprocessable_entity }
-      end
+    if @department.save
+      redirect_to departments_url, notice: "Department was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /departments/1 or /departments/1.json
   def update
-    respond_to do |format|
-      if @department.update(department_params)
-        format.html { redirect_to departments_url, notice: "Department was successfully updated." }
-        format.json { render :show, status: :ok, location: @department }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @department.errors, status: :unprocessable_entity }
-      end
+
+    if @department.update(department_params)
+      redirect_to departments_url, notice: "Department was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /departments/1 or /departments/1.json
   def destroy
     @department.destroy
 
+    redirect_to departments_url, notice: "Department was successfully destroyed."
+  end
+
+  def teams
+    @target = params[:target]
+    @teams = Department.find(params[:department_id]).teams.order(:name)
+    @teams = @teams.map { |team| [team.name, team.id]}
+
     respond_to do |format|
-      format.html { redirect_to departments_url, notice: "Department was successfully destroyed." }
-      format.json { head :no_content }
+      format.turbo_stream
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_department
       @department = Department.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def department_params
       params.require(:department).permit(:name, teams_attributes: [:id, :name, :_destroy])
     end

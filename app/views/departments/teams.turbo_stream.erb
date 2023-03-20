@@ -1,4 +1,5 @@
-<% @teams.prepend ['Select a team', ''] %>
+<%= %>
+<% @teams.prepend ['Select a team', ''] if @teams.any? %>
 <%= turbo_stream.update @target do %>
   <%= options_for_select @teams %>
 <% end %>
