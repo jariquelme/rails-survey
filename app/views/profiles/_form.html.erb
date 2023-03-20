@@ -37,15 +37,14 @@
     </div>
   </div>
 
-
-
-
   <div class="my-5">
     <%= form.label :anonymised %>
     <%= form.check_box :anonymised, class: "block mt-2 h-5 w-5" %>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-green-600 hover:bg-green-500 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit data: { 
+      turbo_submits_with: "Submitting...",
+      }, class: "rounded-lg py-3 px-5 bg-green-600 hover:bg-green-500 text-white inline-block font-medium cursor-pointer disabled:pointer-events-none" %>
   </div>
 <% end %>

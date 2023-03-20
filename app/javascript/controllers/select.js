@@ -13,7 +13,7 @@ export default class extends Controller {
   }
 
   change(event) {
-    this.target().disabled = true;
+    this.target().disabled = true
 
     let params = new URLSearchParams()
     params.append(this.paramValue,event.target.selectedOptions[0].value)
@@ -40,6 +40,4 @@ export default class extends Controller {
   target() {
     return document.getElementById(this.selectTarget.id)
   }
-
-
 }

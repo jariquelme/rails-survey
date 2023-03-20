@@ -23,7 +23,6 @@ class DepartmentsController < DashboardController
   end
 
   def update
-
     if @department.update(department_params)
       redirect_to departments_url, notice: "Department was successfully updated."
     else
@@ -40,7 +39,6 @@ class DepartmentsController < DashboardController
   def teams
     @target = params[:target]
     @teams = Department.find(params[:department_id]).teams.order(:name)
-    @teams = @teams.map { |team| [team.name, team.id]}
 
     respond_to do |format|
       format.turbo_stream
