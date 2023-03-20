@@ -1,6 +1,5 @@
 <%= form_with(
     model: department,
-    class: "contents",
     data: { controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper' }
   ) do |form| %>
   <% if department.errors.any? %>

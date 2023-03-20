@@ -1,0 +1,4 @@
+<% @teams.prepend ['Select a team', ''] %>
+<%= turbo_stream.update @target do %>
+  <%= options_for_select @teams %>
+<% end %>
