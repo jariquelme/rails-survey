@@ -24,7 +24,9 @@ module Omniauth
     end
 
     def create_user_profile!(user)
-      user.create_profile!(alias: Faker::Food.unique.dish)
+      unless user.profile.present?
+        user.create_profile!(alias: Faker::Food.unique.dish)
+      end
     end
   end
 end
