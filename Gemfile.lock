@@ -274,6 +274,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  active_record_doctor
   bootsnap
   capybara
   debug
@@ -292,6 +293,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  strong_migrations (~> 1.4)
   tailwindcss-rails (~> 2.0)
   turbo-rails
   tzinfo-data
