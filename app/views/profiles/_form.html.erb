@@ -20,7 +20,7 @@
       <%= form.label :department_id %>
       <%= form.select :department_id,
         options_from_collection_for_select(@departments, :id, :name, @profile.department&.id),
-        { prompt: "Select a department" },
+        { prompt: "Select one department..." },
         data: { action: "change->select#change" },
         class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
       %>
@@ -30,7 +30,8 @@
       <%= form.label :team_id %>
       <%= form.select :team_id,
         options_from_collection_for_select(@teams, :id, :name, @profile.team&.id),
-        {disabled: 'restricted'},
+        { disabled: "restricted",
+        prompt: "Select a team" },
         data: { select_target: "select" },
         class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
       %>

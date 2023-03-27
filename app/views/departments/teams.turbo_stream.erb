@@ -1,8 +1,11 @@
-<% prompt = @teams.any? ? 'Select a team' : '' %>
+
+<% prompt = content_tag(:option, 'select a team...', value: nil) %>
 <% profile_team_id = current_user.profile&.team&.id %>
 
+<% options = options_from_collection_for_select(@teams, :id, :name, profile_team_id) %>
+
+<% options = prompt.concat(options) if @teams.any? %>
+
 <%= turbo_stream.update @target do %>
-  <%= options_from_collection_for_select(@teams, :id, :name, profile_team_id)
-    .prepend [prompt, '']
-  %>
+  <%= options %>
 <% end %>

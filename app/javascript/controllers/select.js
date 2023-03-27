@@ -16,7 +16,7 @@ export default class extends Controller {
     this.target().disabled = true
 
     let params = new URLSearchParams()
-    params.append(this.paramValue,event.target.selectedOptions[0].value)
+    params.append(this.paramValue, event.target.selectedOptions[0].value)
     params.append("target", this.selectTarget.id)
 
     get(`${this.urlValue}?${params}`, {
