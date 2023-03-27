@@ -86,3 +86,5 @@ gem "faker", "~> 3.1"
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "inline_svg", "~> 1.8"
+
+gem "strong_migrations", "~> 1.4"

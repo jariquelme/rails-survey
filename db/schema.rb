@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_200903) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_075444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,16 +30,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_200903) do
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_profiles_on_department_id"
     t.index ["team_id"], name: "index_profiles_on_team_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
   end
 
   create_table "survey_responses", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.jsonb "response", default: {}
+    t.jsonb "response", default: {}, null: false
     t.date "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date"], name: "index_survey_responses_on_date"
+    t.index ["response"], name: "index_survey_responses_on_response", using: :gin
     t.index ["user_id", "date"], name: "index_survey_responses_on_user_id_and_date", unique: true
     t.index ["user_id"], name: "index_survey_responses_on_user_id"
   end
