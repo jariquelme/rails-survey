@@ -6,5 +6,8 @@ class User < ApplicationRecord
         :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :survey_responses
-  has_one :profile, dependent: :destroy
+  has_one :profile, dependent: :delete
+  
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
 end
