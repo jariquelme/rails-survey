@@ -88,3 +88,6 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "inline_svg", "~> 1.8"
 
 gem "strong_migrations", "~> 1.4"
+
+gem "chartkick", "~> 5.0"
+gem "groupdate", "~> 6.2"
