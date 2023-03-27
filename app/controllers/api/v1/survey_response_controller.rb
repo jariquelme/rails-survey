@@ -4,6 +4,9 @@ class Api::V1::SurveyResponseController < ActionController::API
   def create
     survey_response = Surveys::CreateResponseService.call(
       current_user.id,
+      current_user.profile.department,
+      current_user.profile.team_id,
+      current_user.profile.anonymised,
       survey_response_params.dig(:response)
     )
 

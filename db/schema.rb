@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_075444) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_080528) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,8 +39,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_075444) do
     t.date "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "department_id"
+    t.bigint "team_id"
+    t.boolean "anonymised", default: true
     t.index ["date"], name: "index_survey_responses_on_date"
+    t.index ["department_id"], name: "index_survey_responses_on_department_id"
     t.index ["response"], name: "index_survey_responses_on_response", using: :gin
+    t.index ["team_id"], name: "index_survey_responses_on_team_id"
     t.index ["user_id", "date"], name: "index_survey_responses_on_user_id_and_date", unique: true
     t.index ["user_id"], name: "index_survey_responses_on_user_id"
   end
