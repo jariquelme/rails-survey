@@ -38,7 +38,11 @@ class DepartmentsController < DashboardController
 
   def teams
     @target = params[:target]
-    @teams = Department.find(params[:department_id]).teams.order(:name)
+    @teams = []
+
+    if params[:department_id].present?
+      @teams = Department.find(params[:department_id]).teams.order(:name)
+    end
 
     respond_to do |format|
       format.turbo_stream
