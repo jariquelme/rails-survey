@@ -18,7 +18,6 @@ function SurveyForm() {
         response: sender.data
       }
     };
-    console.log(body);
 
     fetch(url, {
       method: "POST",

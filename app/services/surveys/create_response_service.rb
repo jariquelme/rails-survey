@@ -6,7 +6,8 @@ module Surveys
     attr_reader :team_id
     attr_reader :anonymised
 
-    def initialize(owner_id, department_id, team_id, anonymised, response)
+    def initialize(date, owner_id, department_id, team_id, anonymised, response)
+      @date = date
       @owner_id = owner_id
       @department_id = department_id
       @team_id = team_id
@@ -16,8 +17,8 @@ module Surveys
 
     def call
       survey_response = SurveyResponse.new(
+        date: @date,
         response: @response,
-        date: @response.dig(:whichDayDoYouWantToEvaluate),
         user_id: @owner_id,
         department_id: @department_id,
         team_id: @team_id,
