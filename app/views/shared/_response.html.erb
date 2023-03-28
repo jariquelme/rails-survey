@@ -1,0 +1,29 @@
+<% if responses.any? %>
+  <% headers = responses.slice(0).keys %>
+  <div class="w-full pl-10">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+          <% headers.each do |header| %>
+            <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+              <div class="flex cursor-pointer">
+                <span class="mr-2"><%= header.upcase %></span>
+              </div>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <% responses.each do |response| %>
+          <tr>
+            <% response.values.each do |value| %>
+              <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                <%= value %>
+              </td>
+            <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

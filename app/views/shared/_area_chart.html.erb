@@ -1,0 +1,21 @@
+<div class="px-4">
+  <div class="mx-auto py-10">
+    <div class="shadow p-6 rounded-lg bg-white">
+      <div class="md:flex md:justify-between md:items-center">
+        <div>
+          <h2 class="text-xl text-gray-800 font-bold leading-tight"><%= title %></h2>
+          <p class="mb-2 text-gray-600 text-sm"><%= subtitle %></p>
+        </div>
+      </div>
+
+      <div class="line my-8 relative">
+        <div class="flex -mx-2 items-end mb-2">
+            <div class="px-2 w-1/6">
+              <%= area_chart source, min: 1, max: 10, height:"200px", width: "63em" %>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

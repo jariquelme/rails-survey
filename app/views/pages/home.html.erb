@@ -1,30 +1,8 @@
-<div class="px-4">
-  <div class="mx-auto py-10">
-    <div class="shadow p-6 rounded-lg bg-white">
-      <div class="md:flex md:justify-between md:items-center">
-        <div>
-          <h2 class="text-xl text-gray-800 font-bold leading-tight">How was my work day?</h2>
-          <p class="mb-2 text-gray-600 text-sm">Last 7 Days</p>
-        </div>
+<%= render "shared/area_chart", title: "How was my work day?", subtitle: "Last Week", source: @chart_week %>
+<%= render "shared/response", responses: @responses_week %>
 
-        <!-- Legend -->
-        <div class="mb-4">
-          <div class="flex items-center">
-            <div class="w-2 h-2 bg-blue-600 mr-2 rounded-full"></div>
-            <div class="text-sm text-gray-700"><%= current_user.profile.alias %></div>
-          </div>
-        </div>
-      </div>
+<%= render "shared/area_chart", title: "How was my work day?", subtitle: "Last Month", source: @chart_month %>
+<%= render "shared/response", responses: @responses_month %>
 
-      <div class="line my-8 relative">
-        <div class="flex -mx-2 items-end mb-2">
-            <div class="px-2 w-1/6">
-                <%= line_chart @responses, height:"300px", width: "50em", color:["#fa2327"] %>
-              </div>
-            </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "shared/area_chart", title: "How was my work day?", subtitle: "Last Year", source: @chart_year %>
+<%= render "shared/response", responses: @responses_year %>

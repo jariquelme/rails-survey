@@ -63,5 +63,6 @@ export const surveyJson = {
     ],
     "title": "Evaluation"
    }
-  ]
+  ],
+  "clearInvisibleValues": "none"
  }
